@@ -8,8 +8,8 @@ Entre no aplicativo cmd (Prompt de Comando) e coloque os comandos:
 
 ```console
 pip install unicode
-
-
+```
+```console
 pip install tkinter
 ```
 Depois só abra o arquivo `renomeador.py` e coloque o nome da pasta que você quer renomear.
