@@ -8,7 +8,7 @@ Neste tutorial, vamos aprender como usar um script em Python que utiliza a bibli
 - Instale as bibliotecas `tkinter` e `pdf2docx` se ainda não as tiver. Você pode instalá-las usando o pip:
 
 ```
-pip install tkinter pdf2docx
+pip install tk pdf2docx
 ```
 
 ## Passos para Utilizar o Conversor PDF para Word
