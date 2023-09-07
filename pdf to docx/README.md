@@ -25,7 +25,7 @@ pip install tk pdf2docx
    - Execute o script usando o comando:
 
    ```
-   python pdf_to_word_converter.py
+   python app.py
    ```
 
 5. **Usando a Interface Gráfica**:
