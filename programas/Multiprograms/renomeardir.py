@@ -2,6 +2,7 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 from unidecode import unidecode
+from PIL import Image, ImageTk  # Importe o módulo Pillow
 
 def rename_files_and_folders(directory):
     try:
@@ -61,28 +62,34 @@ x = int((screen_width/2) - (window_width/2))
 y = int((screen_height/2) - (window_height/2))
 window.geometry(f"500x500+{x}+{y}")
 
-window.configure(bg="#0961AE")  # Definir o background da janela
+window.configure(bg="#1F5DA5")  # Definir o background da janela
+
+# Carregar a imagem de fundo
+imagem_fundo = Image.open("programas/Multiprograms/bk.png")
+imagem_fundo = ImageTk.PhotoImage(imagem_fundo)
+
+# Criar um rótulo para a imagem de fundo
+fundo_label = tk.Label(window, image=imagem_fundo)
+fundo_label.place(relwidth=1, relheight=1)
+
+# Frame para centralizar os botões verticalmente
+button_frame = tk.Frame(window, bg="#1F5DA5")
+button_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
 # Widgets
-label = tk.Label(window, text="Clique no botão abaixo para buscar o diretório:", bg="#0961AE", fg="white")
+label = tk.Label(button_frame, text="Clique no botão abaixo para buscar o diretório:", bg="#1F5DA5", fg="white")
 label.pack(pady=10)
 
-search_button_frame = tk.Frame(window, bg="#0961AE")
-search_button_frame.pack()
-
-search_button = tk.Button(search_button_frame, text="Buscar Diretório", command=select_directory, relief=tk.RIDGE)
+search_button = tk.Button(button_frame, text="Buscar Diretório", command=select_directory, relief=tk.RIDGE)
 search_button.pack(pady=5, padx=10)
-search_button.config(bg="#FFFFFF", fg="#0961AE", font=("Arial", 12))
+search_button.config(bg="#FFFFFF", fg="#1F5DA5", font=("Arial", 14))  # Ajuste a fonte e o tamanho
 
-selected_directory_label = tk.Label(window, text="Diretório selecionado:", bg="#0961AE", fg="white")
+selected_directory_label = tk.Label(button_frame, text="Diretório selecionado:", bg="#1F5DA5", fg="white")
 selected_directory_label.pack(pady=5)
 
-rename_button_frame = tk.Frame(window, bg="#0961AE")
-rename_button_frame.pack()
-
-rename_button = tk.Button(rename_button_frame, text="Renomear", command=lambda: rename_files_and_folders(select_directory.get()), relief=tk.RIDGE)
+rename_button = tk.Button(button_frame, text="Renomear", command=lambda: rename_files_and_folders(select_directory.get()), relief=tk.RIDGE)
 rename_button.pack(pady=5, padx=10)
-rename_button.config(bg="#FFFFFF", fg="#0961AE", font=("Arial", 12))
+rename_button.config(bg="#FFFFFF", fg="#1F5DA5", font=("Arial", 14))  # Ajuste a fonte e o tamanho
 
 # Inicia o loop principal da interface gráfica
 window.mainloop()
